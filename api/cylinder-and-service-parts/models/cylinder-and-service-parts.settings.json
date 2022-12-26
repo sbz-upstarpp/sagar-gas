@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cylinder_and_service_parts",
+  "info": {
+    "name": "cylinder-and-service-parts",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "rate": {
+      "type": "decimal"
+    },
+    "delivery": {
+      "via": "cylinder_and_service_part",
+      "model": "delivery"
+    }
+  }
+}

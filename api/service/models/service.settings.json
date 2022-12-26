@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "name": "service",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "connections": {
+      "type": "integer"
+    },
+    "service_charge": {
+      "type": "decimal"
+    },
+    "parts_charge": {
+      "type": "decimal"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "customer": {
+      "model": "customer",
+      "via": "services"
+    },
+    "payment": {
+      "model": "payment",
+      "via": "service"
+    },
+    "cylinder_and_service_parts": {
+      "collection": "cylinder-and-service-parts"
+    },
+    "service_type": {
+      "type": "enumeration",
+      "enum": [
+        "installation",
+        "mainataninace"
+      ]
+    },
+    "amount_received": {
+      "type": "biginteger",
+      "default": "0"
+    }
+  }
+}

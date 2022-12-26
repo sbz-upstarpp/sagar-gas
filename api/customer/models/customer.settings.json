@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "name": "Customer",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "contact_no": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "gst_no": {
+      "type": "string"
+    },
+    "services": {
+      "via": "customer",
+      "collection": "service"
+    },
+    "deliveries": {
+      "via": "customer",
+      "collection": "delivery"
+    },
+    "deposit_cylinders": {
+      "type": "integer",
+      "default": 0
+    },
+    "payments": {
+      "via": "customer",
+      "collection": "payment"
+    }
+  }
+}

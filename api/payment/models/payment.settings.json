@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "name": "payment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "customer": {
+      "model": "customer",
+      "via": "payments"
+    },
+    "amount_received": {
+      "type": "decimal"
+    },
+    "amount_due": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "paid",
+        "partially_paid",
+        "not_paid"
+      ]
+    },
+    "service": {
+      "via": "payment",
+      "model": "service"
+    },
+    "delivery": {
+      "via": "payment",
+      "model": "delivery"
+    },
+    "bill_amount": {
+      "type": "decimal"
+    }
+  }
+}

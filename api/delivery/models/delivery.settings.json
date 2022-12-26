@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deliveries",
+  "info": {
+    "name": "delivery",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "cylinder_and_service_part": {
+      "model": "cylinder-and-service-parts",
+      "via": "delivery"
+    },
+    "supply_qty": {
+      "type": "integer"
+    },
+    "rate": {
+      "type": "decimal"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "return_qty": {
+      "type": "integer"
+    },
+    "customer": {
+      "model": "customer",
+      "via": "deliveries"
+    },
+    "payment": {
+      "model": "payment",
+      "via": "delivery"
+    },
+    "amount_recived": {
+      "type": "biginteger",
+      "default": "0"
+    }
+  }
+}

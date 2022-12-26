@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/cylinder-and-service-parts",
+      "handler": "cylinder-and-service-parts.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cylinder-and-service-parts/count",
+      "handler": "cylinder-and-service-parts.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cylinder-and-service-parts/:id",
+      "handler": "cylinder-and-service-parts.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/cylinder-and-service-parts",
+      "handler": "cylinder-and-service-parts.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/cylinder-and-service-parts/:id",
+      "handler": "cylinder-and-service-parts.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/cylinder-and-service-parts/:id",
+      "handler": "cylinder-and-service-parts.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

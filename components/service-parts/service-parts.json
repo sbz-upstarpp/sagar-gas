@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_service_parts_service_parts",
+  "info": {
+    "name": "service_parts",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "regulator_pipe": {
+      "type": "integer"
+    },
+    "blue_stamp": {
+      "type": "integer"
+    }
+  }
+}
