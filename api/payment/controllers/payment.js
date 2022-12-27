@@ -18,7 +18,7 @@ module.exports = {
             'id': body.customer,
             'payments.date' : {
                 '>=': dateFrom,
-                '>=': dateEnd
+                '<=': dateEnd
             },
         };
         console.log(params, "params",)
