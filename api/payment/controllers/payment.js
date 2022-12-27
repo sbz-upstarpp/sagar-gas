@@ -9,15 +9,21 @@ const { default: createStrapi } = require("strapi");
 
 module.exports = {
     async getInvoice(ctx) {
+        const moment = require('moment');
         const body = ctx.request.body;
+        var dateFrom = moment.utc().startOf('month').toISOString();
+        var dateEnd = moment.utc().endOf('month').toISOString();
+        console.log(dateFrom,dateEnd)
         const params = {
-            customerId: body.customer,
-            startDate: body.startDate ? body.startDate : "",
-            endDate: body.endDate ? body.endDate : "",
+            'id': body.customer,
+            // 'payments.date' : {
+            //     $gte: dateFrom,
+            //     $lte: dateEnd
+            // },
+            'payments.amount_received' : 0,
         };
-        console.log(params)
-        return strapi.query("customer").find({
-        });
+        console.log(params, "params",)
+        return strapi.query("customer").find(params);
     }
 };
 

@@ -511,7 +511,7 @@
         ]
       }
     },
-    "/get-customser-invoice": {
+    "/admin/plugins/get-customser-invoice": {
       "post": {
         "deprecated": false,
         "description": "Create a new record",
@@ -595,7 +595,7 @@
           },
           "date": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           },
           "customer": {
             "required": [
@@ -791,7 +791,7 @@
         "properties": {
           "date": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           },
           "customer": {
             "type": "string"

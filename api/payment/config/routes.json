@@ -50,7 +50,7 @@
     },
     {
       "method": "POST",
-      "path": "/get-customser-invoice",
+      "path": "/admin/plugins/get-customser-invoice",
       "handler": "payment.getInvoice",
       "config": {
         "policies": []

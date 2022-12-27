@@ -5,11 +5,11 @@ import axios from 'axios';
 const HomePage = () => {
   const [customers, setCustomers] = useState([]);
   const [selectedCustomer, setSelectedCustomer] = useState('');
+  const [invoiceData, setInvoiceData] = useState({});
 
   useEffect(() => {
     async function fetchCustomers() {
       const response = await axios.get('/customers').then((res) => { console.log("res", res); setCustomers(res.data); }).catch((error) => console.log('error', error));
-
     }
     fetchCustomers();
   }, []);
@@ -17,8 +17,12 @@ const HomePage = () => {
   useEffect(() => {
     if (selectedCustomer) {
       async function fetchCustomerData() {
-        const response = await axios.get(`/customers/${selectedCustomer}`).then((res) => { console.log("res", res); setCustomers(res.data); }).catch((error) => console.log('error', error));
-        setCustomerData(response.data);
+        let postData = {
+          customer : selectedCustomer,
+        }
+        const response = await axios.post(`get-customser-invoice`,postData).then((res) => { console.log("res", res); setInvoiceData(res.data); }).catch((error) => console.log('error', error));
+        // setInvoiceData(response.data);
+        console.log(invoiceData,"<<<<invoiceData")
       }
 
       fetchCustomerData();
@@ -43,6 +47,7 @@ const HomePage = () => {
       </select>
 
         <p>{selectedCustomer}</p>
+        {/* <p>{invoiceData}</p> */}
       {/* <table>
         <thead>
           <tr>
