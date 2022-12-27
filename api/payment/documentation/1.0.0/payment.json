@@ -713,6 +713,15 @@
               "admin_charge": {
                 "type": "integer"
               },
+              "regulator": {
+                "type": "integer"
+              },
+              "gas_pipe": {
+                "type": "integer"
+              },
+              "connection_book": {
+                "type": "integer"
+              },
               "published_at": {
                 "type": "string"
               },

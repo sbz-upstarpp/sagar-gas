@@ -18,21 +18,24 @@
       "type": "integer"
     },
     "service_charge": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 0
     },
     "parts_charge": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 0
     },
     "total": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 0
     },
     "customer": {
-      "via": "services",
-      "model": "customer"
+      "model": "customer",
+      "via": "services"
     },
     "payment": {
-      "via": "service",
-      "model": "payment"
+      "model": "payment",
+      "via": "service"
     },
     "cylinder_and_service_parts": {
       "collection": "cylinder-and-service-parts"
@@ -51,6 +54,18 @@
     "admin_charge": {
       "type": "biginteger",
       "default": "0"
+    },
+    "regulator": {
+      "type": "integer",
+      "default": 0
+    },
+    "gas_pipe": {
+      "type": "integer",
+      "default": 0
+    },
+    "connection_book": {
+      "type": "integer",
+      "default": 0
     }
   }
 }

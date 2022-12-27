@@ -530,13 +530,16 @@
             "type": "integer"
           },
           "service_charge": {
-            "type": "number"
+            "type": "number",
+            "default": 0
           },
           "parts_charge": {
-            "type": "number"
+            "type": "number",
+            "default": 0
           },
           "total": {
-            "type": "number"
+            "type": "number",
+            "default": 0
           },
           "customer": {
             "required": [
@@ -691,6 +694,18 @@
             "type": "integer",
             "default": "0"
           },
+          "regulator": {
+            "type": "integer",
+            "default": 0
+          },
+          "gas_pipe": {
+            "type": "integer",
+            "default": 0
+          },
+          "connection_book": {
+            "type": "integer",
+            "default": 0
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -707,13 +722,16 @@
             "type": "integer"
           },
           "service_charge": {
-            "type": "number"
+            "type": "number",
+            "default": 0
           },
           "parts_charge": {
-            "type": "number"
+            "type": "number",
+            "default": 0
           },
           "total": {
-            "type": "number"
+            "type": "number",
+            "default": 0
           },
           "customer": {
             "type": "string"
@@ -738,6 +756,18 @@
           "admin_charge": {
             "type": "integer",
             "default": "0"
+          },
+          "regulator": {
+            "type": "integer",
+            "default": 0
+          },
+          "gas_pipe": {
+            "type": "integer",
+            "default": 0
+          },
+          "connection_book": {
+            "type": "integer",
+            "default": 0
           },
           "published_at": {
             "type": "string",

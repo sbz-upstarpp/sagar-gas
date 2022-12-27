@@ -21,7 +21,7 @@ module.exports = {
                 '<=': dateEnd
             },
         };
-        console.log(params, "params",)
+        console.log(params, "params")
         return strapi.query("customer").find(params);
     }
 };

@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "rates",
+  "info": {
+    "name": "Rate"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "regulator": {
+      "type": "integer"
+    },
+    "gas_pipe": {
+      "type": "integer"
+    },
+    "connetion_book": {
+      "type": "integer"
+    }
+  }
+}

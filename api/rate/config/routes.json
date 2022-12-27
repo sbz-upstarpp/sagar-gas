@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/rate",
+      "handler": "rate.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/rate",
+      "handler": "rate.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/rate",
+      "handler": "rate.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

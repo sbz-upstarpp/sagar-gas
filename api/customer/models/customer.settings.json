@@ -27,8 +27,8 @@
       "type": "string"
     },
     "services": {
-      "collection": "service",
-      "via": "customer"
+      "via": "customer",
+      "collection": "service"
     },
     "deliveries": {
       "collection": "delivery",
