@@ -16,11 +16,10 @@ module.exports = {
         console.log(dateFrom,dateEnd)
         const params = {
             'id': body.customer,
-            // 'payments.date' : {
-            //     $gte: dateFrom,
-            //     $lte: dateEnd
-            // },
-            'payments.amount_received' : 0,
+            'payments.date' : {
+                '>=': dateFrom,
+                '>=': dateEnd
+            },
         };
         console.log(params, "params",)
         return strapi.query("customer").find(params);
