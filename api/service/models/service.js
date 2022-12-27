@@ -16,6 +16,7 @@ module.exports = {
             const paymentData = {
                 date : data.date,
                 bill_amount : data.total,
+                bill_for : "service",
                 amount_received : data.amount_received,
                 amount_due : (data.total-data.amount_received),
                 service : result.id,

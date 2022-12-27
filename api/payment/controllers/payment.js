@@ -11,12 +11,13 @@ module.exports = {
     async getInvoice(ctx) {
         const body = ctx.request.body;
         const params = {
-            customerId : body.customer,
-            startDate : body.startDate ? body.startDate : "",
-            endDate : body.endDate ? body.endDate : "",
+            customerId: body.customer,
+            startDate: body.startDate ? body.startDate : "",
+            endDate: body.endDate ? body.endDate : "",
         };
-        return strapi.query("payment").where({cusomer:params.customerId})
-        .find({});
+        console.log(params)
+        return strapi.query("customer").find({
+        });
     }
-  };
- 
+};
+

@@ -577,6 +577,9 @@
                 "amount_received": {
                   "type": "integer"
                 },
+                "admin_charge": {
+                  "type": "integer"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -676,6 +679,9 @@
                 "bill_amount": {
                   "type": "number"
                 },
+                "bill_for": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -687,6 +693,18 @@
                 }
               }
             }
+          },
+          "deposit_amount": {
+            "type": "number",
+            "default": 0
+          },
+          "deposit_paid": {
+            "type": "string",
+            "default": "no",
+            "enum": [
+              "yes",
+              "no"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -732,6 +750,18 @@
             "items": {
               "type": "string"
             }
+          },
+          "deposit_amount": {
+            "type": "number",
+            "default": 0
+          },
+          "deposit_paid": {
+            "type": "string",
+            "default": "no",
+            "enum": [
+              "yes",
+              "no"
+            ]
           },
           "published_at": {
             "type": "string",

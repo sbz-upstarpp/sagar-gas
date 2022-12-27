@@ -27,12 +27,12 @@
       "type": "decimal"
     },
     "customer": {
-      "model": "customer",
-      "via": "services"
+      "via": "services",
+      "model": "customer"
     },
     "payment": {
-      "model": "payment",
-      "via": "service"
+      "via": "service",
+      "model": "payment"
     },
     "cylinder_and_service_parts": {
       "collection": "cylinder-and-service-parts"
@@ -45,6 +45,10 @@
       ]
     },
     "amount_received": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "admin_charge": {
       "type": "biginteger",
       "default": "0"
     }

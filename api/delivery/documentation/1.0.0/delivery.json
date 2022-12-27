@@ -613,6 +613,12 @@
                   "type": "string"
                 }
               },
+              "deposit_amount": {
+                "type": "number"
+              },
+              "deposit_paid": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -655,6 +661,9 @@
               },
               "bill_amount": {
                 "type": "number"
+              },
+              "bill_for": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"

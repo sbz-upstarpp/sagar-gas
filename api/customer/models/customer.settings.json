@@ -27,12 +27,12 @@
       "type": "string"
     },
     "services": {
-      "via": "customer",
-      "collection": "service"
+      "collection": "service",
+      "via": "customer"
     },
     "deliveries": {
-      "via": "customer",
-      "collection": "delivery"
+      "collection": "delivery",
+      "via": "customer"
     },
     "deposit_cylinders": {
       "type": "integer",
@@ -41,6 +41,18 @@
     "payments": {
       "via": "customer",
       "collection": "payment"
+    },
+    "deposit_amount": {
+      "type": "decimal",
+      "default": 0
+    },
+    "deposit_paid": {
+      "type": "enumeration",
+      "enum": [
+        "yes",
+        "no"
+      ],
+      "default": "no"
     }
   }
 }

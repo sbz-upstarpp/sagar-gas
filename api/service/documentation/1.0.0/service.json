@@ -582,6 +582,12 @@
                   "type": "string"
                 }
               },
+              "deposit_amount": {
+                "type": "number"
+              },
+              "deposit_paid": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -624,6 +630,9 @@
               },
               "bill_amount": {
                 "type": "number"
+              },
+              "bill_for": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -678,6 +687,10 @@
             "type": "integer",
             "default": "0"
           },
+          "admin_charge": {
+            "type": "integer",
+            "default": "0"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -719,6 +732,10 @@
             ]
           },
           "amount_received": {
+            "type": "integer",
+            "default": "0"
+          },
+          "admin_charge": {
             "type": "integer",
             "default": "0"
           },

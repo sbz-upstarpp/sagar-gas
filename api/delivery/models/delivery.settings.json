@@ -31,12 +31,12 @@
       "type": "integer"
     },
     "customer": {
-      "model": "customer",
-      "via": "deliveries"
+      "via": "deliveries",
+      "model": "customer"
     },
     "payment": {
-      "model": "payment",
-      "via": "delivery"
+      "via": "delivery",
+      "model": "payment"
     },
     "amount_recived": {
       "type": "biginteger",

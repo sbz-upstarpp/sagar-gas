@@ -641,6 +641,12 @@
                   "type": "string"
                 }
               },
+              "deposit_amount": {
+                "type": "number"
+              },
+              "deposit_paid": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -704,6 +710,9 @@
               "amount_received": {
                 "type": "integer"
               },
+              "admin_charge": {
+                "type": "integer"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -764,6 +773,14 @@
           "bill_amount": {
             "type": "number"
           },
+          "bill_for": {
+            "type": "string",
+            "enum": [
+              "deposit",
+              "service",
+              "delivery"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -801,6 +818,14 @@
           },
           "bill_amount": {
             "type": "number"
+          },
+          "bill_for": {
+            "type": "string",
+            "enum": [
+              "deposit",
+              "service",
+              "delivery"
+            ]
           },
           "published_at": {
             "type": "string",

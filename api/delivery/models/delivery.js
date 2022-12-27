@@ -21,6 +21,7 @@ module.exports = {
             // create payment entry
             const paymentData = {
                 date: data.date,
+                bill_for : 'delivery',
                 bill_amount: totalAmount,
                 amount_received: data.amount_recived,
                 amount_due: dueAmount,

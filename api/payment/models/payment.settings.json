@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "payments",
   "info": {
-    "name": "payment",
+    "name": "billing",
     "description": ""
   },
   "options": {
@@ -33,15 +33,23 @@
       ]
     },
     "service": {
-      "via": "payment",
-      "model": "service"
+      "model": "service",
+      "via": "payment"
     },
     "delivery": {
-      "via": "payment",
-      "model": "delivery"
+      "model": "delivery",
+      "via": "payment"
     },
     "bill_amount": {
       "type": "decimal"
+    },
+    "bill_for": {
+      "type": "enumeration",
+      "enum": [
+        "deposit",
+        "service",
+        "delivery"
+      ]
     }
   }
 }
