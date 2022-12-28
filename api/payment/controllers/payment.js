@@ -36,7 +36,7 @@ module.exports = {
         'deliveries.supply_qty',         
         'deliveries.rate',         
         'deliveries.cylinder_and_service_part',         
-        // 'cylinder_and_service_parts.name as part_name',         
+        'cylinder_and_service_parts.name as part_name',         
         'services.id as service_id',
         'services.connections',
         'services.regulator',

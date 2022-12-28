@@ -9,6 +9,11 @@ module.exports = {
     lifecycles: {
         beforeCreate(data) {
             console.log("data before create customer",data);
+
+            if(!(data.name)){
+                throw new ApplicationError('Not found',422);
+
+            }
         },
         afterCreate(result, data) {
             console.log("after create customer", result, data);
