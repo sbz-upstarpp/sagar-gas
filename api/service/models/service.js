@@ -42,7 +42,7 @@ module.exports = {
             const paymentData = {
                 payment_date: result.created_at,
                 amount : data.amount_received,
-                customer: result.id
+                customer:  data.customer
             }
             strapi.services.transaction.create(paymentData)
         }

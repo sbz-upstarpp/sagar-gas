@@ -12,31 +12,35 @@
   },
   "attributes": {
     "date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "cylinder_and_service_part": {
       "model": "cylinder-and-service-parts",
       "via": "delivery"
     },
     "supply_qty": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "rate": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "total": {
       "type": "decimal"
     },
     "return_qty": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "customer": {
-      "via": "deliveries",
-      "model": "customer"
+      "model": "customer",
+      "via": "deliveries"
     },
     "payment": {
-      "via": "delivery",
-      "model": "payment"
+      "model": "payment",
+      "via": "delivery"
     },
     "amount_recived": {
       "type": "biginteger",

@@ -12,7 +12,8 @@
   },
   "attributes": {
     "date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "connections": {
       "type": "integer"
@@ -30,8 +31,8 @@
       "default": 0
     },
     "customer": {
-      "via": "services",
-      "model": "customer"
+      "model": "customer",
+      "via": "services"
     },
     "payment": {
       "model": "payment",

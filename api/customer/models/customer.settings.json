@@ -12,13 +12,16 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "address": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "contact_no": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "email": {
       "type": "email"
@@ -27,24 +30,25 @@
       "type": "string"
     },
     "services": {
-      "collection": "service",
-      "via": "customer"
+      "via": "customer",
+      "collection": "service"
     },
     "deliveries": {
-      "collection": "delivery",
-      "via": "customer"
+      "via": "customer",
+      "collection": "delivery"
     },
     "deposit_cylinders": {
       "type": "integer",
       "default": 0
     },
     "payments": {
-      "collection": "payment",
-      "via": "customer"
+      "via": "customer",
+      "collection": "payment"
     },
     "deposit_amount": {
       "type": "decimal",
-      "default": 0
+      "default": 0,
+      "required": true
     },
     "deposit_paid": {
       "type": "enumeration",
@@ -52,11 +56,12 @@
         "yes",
         "no"
       ],
-      "default": "no"
+      "default": "no",
+      "required": true
     },
     "transactions": {
-      "collection": "transaction",
-      "via": "customer"
+      "via": "customer",
+      "collection": "transaction"
     },
     "due_amount": {
       "type": "decimal",

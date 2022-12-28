@@ -8,16 +8,14 @@
 module.exports = {
     lifecycles: {
         beforeCreate(data) {
-            console.log("data before create payment",data);
+            console.log("data before create biiling",data);
         },
         afterCreate(result, data) {
             console.log("after create biiling", result, data);
             const customer = data.customer ;
-            const amountDue = result.customer.due_amount + result.bill_amount
-            console.log(amountDue,"<<<<<<<<amountDue");
-            strapi.services.customer.update({id:customer},{
-                due_amount : amountDue
-            });
+            const amountDue = result.bill_amount;
+            const knex = strapi.connections.default;
+            knex('customers').where('id',customer).increment('due_amount', amountDue)
         },
     }
 };

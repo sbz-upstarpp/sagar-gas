@@ -34,18 +34,16 @@ module.exports = {
             const paymentData = {
                 payment_date: result.created_at,
                 amount : data.amount_recived,
-                customer: result.id
+                customer: data.customer
             }
             strapi.services.transaction.create(paymentData)
 
             //update cutomer deposit cylinders
             let customer = data.customer
             let remainingQty = result.customer.deposit_cylinders + (data.supply_qty - data.return_qty)
-            let due = result.due_amount
  
             strapi.services.customer.update({id:customer},{
                 deposit_cylinders : remainingQty,
-                due_amount : due
             });
 
         }

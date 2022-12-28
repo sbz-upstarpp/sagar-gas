@@ -546,7 +546,11 @@
           },
           "delivery": {
             "required": [
-              "id"
+              "id",
+              "date",
+              "supply_qty",
+              "rate",
+              "return_qty"
             ],
             "properties": {
               "id": {

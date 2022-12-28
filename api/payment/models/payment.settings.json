@@ -12,11 +12,12 @@
   },
   "attributes": {
     "date": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
     },
     "customer": {
-      "via": "payments",
-      "model": "customer"
+      "model": "customer",
+      "via": "payments"
     },
     "amount_received": {
       "type": "decimal"
@@ -37,11 +38,12 @@
       "model": "service"
     },
     "delivery": {
-      "model": "delivery",
-      "via": "payment"
+      "via": "payment",
+      "model": "delivery"
     },
     "bill_amount": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "bill_for": {
       "type": "enumeration",

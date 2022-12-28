@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/28/2022 3:34:05 PM"
+    "x-generation-date": "12/28/2022 5:06:18 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5605,7 +5605,12 @@
     "schemas": {
       "Customer": {
         "required": [
-          "id"
+          "id",
+          "name",
+          "address",
+          "contact_no",
+          "deposit_amount",
+          "deposit_paid"
         ],
         "properties": {
           "id": {
@@ -5630,7 +5635,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "date"
               ],
               "properties": {
                 "id": {
@@ -5694,7 +5700,11 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "date",
+                "supply_qty",
+                "rate",
+                "return_qty"
               ],
               "properties": {
                 "id": {
@@ -5747,7 +5757,9 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "date",
+                "bill_amount"
               ],
               "properties": {
                 "id": {
@@ -5808,7 +5820,9 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "payment_date",
+                "amount"
               ],
               "properties": {
                 "id": {
@@ -5849,6 +5863,13 @@
         }
       },
       "NewCustomer": {
+        "required": [
+          "name",
+          "address",
+          "contact_no",
+          "deposit_amount",
+          "deposit_paid"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -5940,7 +5961,11 @@
           },
           "delivery": {
             "required": [
-              "id"
+              "id",
+              "date",
+              "supply_qty",
+              "rate",
+              "return_qty"
             ],
             "properties": {
               "id": {
@@ -6018,7 +6043,11 @@
       },
       "Delivery": {
         "required": [
-          "id"
+          "id",
+          "date",
+          "supply_qty",
+          "rate",
+          "return_qty"
         ],
         "properties": {
           "id": {
@@ -6073,7 +6102,12 @@
           },
           "customer": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "address",
+              "contact_no",
+              "deposit_amount",
+              "deposit_paid"
             ],
             "properties": {
               "id": {
@@ -6143,7 +6177,9 @@
           },
           "payment": {
             "required": [
-              "id"
+              "id",
+              "date",
+              "bill_amount"
             ],
             "properties": {
               "id": {
@@ -6198,6 +6234,12 @@
         }
       },
       "NewDelivery": {
+        "required": [
+          "date",
+          "supply_qty",
+          "rate",
+          "return_qty"
+        ],
         "properties": {
           "date": {
             "type": "string",
@@ -6242,7 +6284,9 @@
       },
       "Payment": {
         "required": [
-          "id"
+          "id",
+          "date",
+          "bill_amount"
         ],
         "properties": {
           "id": {
@@ -6254,7 +6298,12 @@
           },
           "customer": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "address",
+              "contact_no",
+              "deposit_amount",
+              "deposit_paid"
             ],
             "properties": {
               "id": {
@@ -6338,7 +6387,8 @@
           },
           "service": {
             "required": [
-              "id"
+              "id",
+              "date"
             ],
             "properties": {
               "id": {
@@ -6399,7 +6449,11 @@
           },
           "delivery": {
             "required": [
-              "id"
+              "id",
+              "date",
+              "supply_qty",
+              "rate",
+              "return_qty"
             ],
             "properties": {
               "id": {
@@ -6461,6 +6515,10 @@
         }
       },
       "NewPayment": {
+        "required": [
+          "date",
+          "bill_amount"
+        ],
         "properties": {
           "date": {
             "type": "string",
@@ -6560,7 +6618,8 @@
       },
       "Service": {
         "required": [
-          "id"
+          "id",
+          "date"
         ],
         "properties": {
           "id": {
@@ -6587,7 +6646,12 @@
           },
           "customer": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "address",
+              "contact_no",
+              "deposit_amount",
+              "deposit_paid"
             ],
             "properties": {
               "id": {
@@ -6657,7 +6721,9 @@
           },
           "payment": {
             "required": [
-              "id"
+              "id",
+              "date",
+              "bill_amount"
             ],
             "properties": {
               "id": {
@@ -6766,6 +6832,9 @@
         }
       },
       "NewService": {
+        "required": [
+          "date"
+        ],
         "properties": {
           "date": {
             "type": "string",
@@ -6836,7 +6905,9 @@
       },
       "Transaction": {
         "required": [
-          "id"
+          "id",
+          "payment_date",
+          "amount"
         ],
         "properties": {
           "id": {
@@ -6851,7 +6922,12 @@
           },
           "customer": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "address",
+              "contact_no",
+              "deposit_amount",
+              "deposit_paid"
             ],
             "properties": {
               "id": {
@@ -6936,6 +7012,10 @@
         }
       },
       "NewTransaction": {
+        "required": [
+          "payment_date",
+          "amount"
+        ],
         "properties": {
           "payment_date": {
             "type": "string",

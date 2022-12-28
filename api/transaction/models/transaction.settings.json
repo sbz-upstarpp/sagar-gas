@@ -12,14 +12,16 @@
   },
   "attributes": {
     "payment_date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "amount": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "customer": {
-      "via": "transactions",
-      "model": "customer"
+      "model": "customer",
+      "via": "transactions"
     },
     "mode_of_payment": {
       "type": "enumeration",

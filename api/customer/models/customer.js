@@ -42,7 +42,7 @@ module.exports = {
         },
         afterUpdate(result, data) {
             
-            console.log('after update customer',data)
+            console.log('after update customer',result)
 
         }
     }

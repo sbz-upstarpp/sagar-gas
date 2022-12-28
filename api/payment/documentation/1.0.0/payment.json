@@ -587,7 +587,9 @@
     "schemas": {
       "Payment": {
         "required": [
-          "id"
+          "id",
+          "date",
+          "bill_amount"
         ],
         "properties": {
           "id": {
@@ -599,7 +601,12 @@
           },
           "customer": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "address",
+              "contact_no",
+              "deposit_amount",
+              "deposit_paid"
             ],
             "properties": {
               "id": {
@@ -683,7 +690,8 @@
           },
           "service": {
             "required": [
-              "id"
+              "id",
+              "date"
             ],
             "properties": {
               "id": {
@@ -744,7 +752,11 @@
           },
           "delivery": {
             "required": [
-              "id"
+              "id",
+              "date",
+              "supply_qty",
+              "rate",
+              "return_qty"
             ],
             "properties": {
               "id": {
@@ -806,6 +818,10 @@
         }
       },
       "NewPayment": {
+        "required": [
+          "date",
+          "bill_amount"
+        ],
         "properties": {
           "date": {
             "type": "string",

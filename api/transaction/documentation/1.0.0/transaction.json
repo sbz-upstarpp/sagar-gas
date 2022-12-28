@@ -516,7 +516,9 @@
     "schemas": {
       "Transaction": {
         "required": [
-          "id"
+          "id",
+          "payment_date",
+          "amount"
         ],
         "properties": {
           "id": {
@@ -531,7 +533,12 @@
           },
           "customer": {
             "required": [
-              "id"
+              "id",
+              "name",
+              "address",
+              "contact_no",
+              "deposit_amount",
+              "deposit_paid"
             ],
             "properties": {
               "id": {
@@ -616,6 +623,10 @@
         }
       },
       "NewTransaction": {
+        "required": [
+          "payment_date",
+          "amount"
+        ],
         "properties": {
           "payment_date": {
             "type": "string",

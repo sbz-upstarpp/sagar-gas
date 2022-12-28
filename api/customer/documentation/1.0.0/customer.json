@@ -516,7 +516,12 @@
     "schemas": {
       "Customer": {
         "required": [
-          "id"
+          "id",
+          "name",
+          "address",
+          "contact_no",
+          "deposit_amount",
+          "deposit_paid"
         ],
         "properties": {
           "id": {
@@ -541,7 +546,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "date"
               ],
               "properties": {
                 "id": {
@@ -605,7 +611,11 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "date",
+                "supply_qty",
+                "rate",
+                "return_qty"
               ],
               "properties": {
                 "id": {
@@ -658,7 +668,9 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "date",
+                "bill_amount"
               ],
               "properties": {
                 "id": {
@@ -719,7 +731,9 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "payment_date",
+                "amount"
               ],
               "properties": {
                 "id": {
@@ -760,6 +774,13 @@
         }
       },
       "NewCustomer": {
+        "required": [
+          "name",
+          "address",
+          "contact_no",
+          "deposit_amount",
+          "deposit_paid"
+        ],
         "properties": {
           "name": {
             "type": "string"

@@ -12,9 +12,8 @@ module.exports = {
 
     const moment = require('moment');
     const body = ctx.request.body;
-    var dateFrom = moment().startOf('month').format('YYYY-MM-DD');
-    var dateEnd = moment().endOf('month').format('YYYY-MM-DD');
-    
+    var dateFrom =  Date.parse(moment().utc().startOf('month'));
+    var dateEnd =  Date.parse(moment().utc().endOf('month'));
     const _ = require('lodash');
 
     const knex = strapi.connections.default;
@@ -37,7 +36,7 @@ module.exports = {
         'deliveries.supply_qty',         
         'deliveries.rate',         
         'deliveries.cylinder_and_service_part',         
-        'cylinder_and_service_parts.name as part_name',         
+        // 'cylinder_and_service_parts.name as part_name',         
         'services.id as service_id',
         'services.connections',
         'services.regulator',
@@ -45,12 +44,12 @@ module.exports = {
         'services.connection_book',
         'services.service_charge',
         'services.admin_charge',
-        'services.*',
+        // 'services.*',
         'payments.*'
       )
     const result =  _.groupBy(entries, 'bill_for')
     result.customer = customer
-    console.log(result,"result")
+    console.log('result>>>',result)
     return result;
   }
 };
