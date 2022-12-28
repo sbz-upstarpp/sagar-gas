@@ -619,6 +619,15 @@
               "deposit_paid": {
                 "type": "string"
               },
+              "transactions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "due_amount": {
+                "type": "number"
+              },
               "published_at": {
                 "type": "string"
               },

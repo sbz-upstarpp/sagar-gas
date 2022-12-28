@@ -18,23 +18,34 @@ module.exports = {
             let dueAmount = totalAmount - data.amount_recived ;
 
 
-            // create payment entry
-            const paymentData = {
+            // create bill entry
+            const billData = {
                 date: data.date,
                 bill_for : 'delivery',
                 bill_amount: totalAmount,
-                amount_received: data.amount_recived,
-                amount_due: dueAmount,
+                // amount_received: data.amount_recived,
+                // amount_due: dueAmount,
                 delivery: result.id,
                 customer: data.customer
             }
-            strapi.services.payment.create(paymentData);
+            strapi.services.payment.create(billData);
+
+            // create payment entry
+            const paymentData = {
+                payment_date: result.created_at,
+                amount : data.amount_recived,
+                customer: result.id
+            }
+            strapi.services.transaction.create(paymentData)
 
             //update cutomer deposit cylinders
             let customer = data.customer
             let remainingQty = result.customer.deposit_cylinders + (data.supply_qty - data.return_qty)
+            let due = result.due_amount
+ 
             strapi.services.customer.update({id:customer},{
-                deposit_cylinders : remainingQty
+                deposit_cylinders : remainingQty,
+                due_amount : due
             });
 
         }

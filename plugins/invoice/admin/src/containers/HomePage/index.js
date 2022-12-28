@@ -39,6 +39,7 @@ const HomePage = () => {
         value={selectedCustomer}
         onChange={event => setSelectedCustomer(event.target.value)}
       >
+        
         {customers.map(customer => (
           <option key={customer.id} value={customer.id}>
             {customer.name} | {customer.contact_no}

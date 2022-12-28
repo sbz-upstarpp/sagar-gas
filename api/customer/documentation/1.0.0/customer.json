@@ -715,6 +715,44 @@
               "no"
             ]
           },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "payment_date": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "customer": {
+                  "type": "string"
+                },
+                "mode_of_payment": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "due_amount": {
+            "type": "number",
+            "default": 0
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -771,6 +809,16 @@
               "yes",
               "no"
             ]
+          },
+          "transactions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "due_amount": {
+            "type": "number",
+            "default": 0
           },
           "published_at": {
             "type": "string",

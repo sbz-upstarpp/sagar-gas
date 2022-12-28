@@ -7,14 +7,9 @@
 
 module.exports = {
     lifecycles: {
-        beforeCreate(data) {
-            console.log("data before create payment",data);
-        },
         afterCreate(result, data) {
-            console.log("after create biiling", result, data);
             const customer = data.customer ;
-            const amountDue = result.customer.due_amount + result.bill_amount
-            console.log(amountDue,"<<<<<<<<amountDue");
+            const amountDue = result.customer.due_amount - data.amount
             strapi.services.customer.update({id:customer},{
                 due_amount : amountDue
             });

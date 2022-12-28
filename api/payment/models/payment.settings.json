@@ -15,8 +15,8 @@
       "type": "datetime"
     },
     "customer": {
-      "model": "customer",
-      "via": "payments"
+      "via": "payments",
+      "model": "customer"
     },
     "amount_received": {
       "type": "decimal"

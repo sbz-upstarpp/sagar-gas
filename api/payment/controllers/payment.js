@@ -8,21 +8,49 @@ const { default: createStrapi } = require("strapi");
  */
 
 module.exports = {
-    async getInvoice(ctx) {
-        const moment = require('moment');
-        const body = ctx.request.body;
-        var dateFrom = moment.utc().startOf('month').toISOString();
-        var dateEnd = moment.utc().endOf('month').toISOString();
-        console.log(dateFrom,dateEnd)
-        const params = {
-            'id': body.customer,
-            'payments.date' : {
-                '>=': dateFrom,
-                '<=': dateEnd
-            },
-        };
-        console.log(params, "params")
-        return strapi.query("customer").find(params);
-    }
-};
+  async getInvoice(ctx) {
 
+    const moment = require('moment');
+    const body = ctx.request.body;
+    var dateFrom = moment().startOf('month').format('YYYY-MM-DD');
+    var dateEnd = moment().endOf('month').format('YYYY-MM-DD');
+    
+    const _ = require('lodash');
+
+    const knex = strapi.connections.default;
+    const customer = await strapi.query('customer').findOne(
+      { id:body.customer},
+      ['transactions']
+    )
+    const entries = await knex('payments')
+      .leftJoin('customers', 'payments.customer', 'customers.id')
+      .leftJoin('deliveries','payments.delivery','deliveries.id')
+      .leftJoin('services','payments.service','services.id')
+      .leftJoin('cylinder_and_service_parts','deliveries.cylinder_and_service_part','cylinder_and_service_parts.id')
+      .where('payments.date', '>=',dateFrom)
+      .where('payments.date', '<=',dateEnd)
+      .where('customers.id', body.customer)
+      .select(
+        'customers.id as customer_id',
+        'deliveries.id as delivery_id',
+        'deliveries.date as delivery_date',         
+        'deliveries.supply_qty',         
+        'deliveries.rate',         
+        'deliveries.cylinder_and_service_part',         
+        'cylinder_and_service_parts.name as part_name',         
+        'services.id as service_id',
+        'services.connections',
+        'services.regulator',
+        'services.gas_pipe',
+        'services.connection_book',
+        'services.service_charge',
+        'services.admin_charge',
+        'services.*',
+        'payments.*'
+      )
+    const result =  _.groupBy(entries, 'bill_for')
+    result.customer = customer
+    console.log(result,"result")
+    return result;
+  }
+};

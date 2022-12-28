@@ -16,16 +16,33 @@ module.exports = {
             let amountRecived = result.deposit_paid == "yes" ?  result.deposit_amount : 0.00;
             let amountDue = totalAmount-amountRecived;
 
-            // create payment entry
-            const paymentData = {
+            // create bill entry
+            const billData = {
                 date: result.created_at,
                 bill_amount: totalAmount,
-                amount_received: amountRecived,
-                amount_due: amountDue,
                 bill_for: "deposit",
                 customer: result.id
             }
-            strapi.services.payment.create(paymentData);
+            strapi.services.payment.create(billData);
+
+            // create bill entry
+            if (result.deposit_paid == "yes")
+            {
+                const paymentData = {
+                    payment_date: result.created_at,
+                    amount : deposit_amount,
+                    customer: result.id
+                }
+                strapi.services.transaction.create(paymentData);
+            }
+
+        },
+        beforeUpdate(params,data) {
+            console.log("data before update customer",data,params);
+        },
+        afterUpdate(result, data) {
+            
+            console.log('after update customer',data)
 
         }
     }

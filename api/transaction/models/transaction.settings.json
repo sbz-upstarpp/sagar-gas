@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "name": "Transaction",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "payment_date": {
+      "type": "date"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "customer": {
+      "via": "transactions",
+      "model": "customer"
+    },
+    "mode_of_payment": {
+      "type": "enumeration",
+      "enum": [
+        "cash",
+        "upi",
+        "met_banking",
+        "cheque"
+      ],
+      "default": "cash"
+    }
+  }
+}

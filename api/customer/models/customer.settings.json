@@ -27,8 +27,8 @@
       "type": "string"
     },
     "services": {
-      "via": "customer",
-      "collection": "service"
+      "collection": "service",
+      "via": "customer"
     },
     "deliveries": {
       "collection": "delivery",
@@ -39,8 +39,8 @@
       "default": 0
     },
     "payments": {
-      "via": "customer",
-      "collection": "payment"
+      "collection": "payment",
+      "via": "customer"
     },
     "deposit_amount": {
       "type": "decimal",
@@ -53,6 +53,14 @@
         "no"
       ],
       "default": "no"
+    },
+    "transactions": {
+      "collection": "transaction",
+      "via": "customer"
+    },
+    "due_amount": {
+      "type": "decimal",
+      "default": 0
     }
   }
 }

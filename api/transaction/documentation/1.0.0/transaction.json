@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/payments": {
+    "/transactions": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Payment"
+                    "$ref": "#/components/schemas/Transaction"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Payment"
+          "Transaction"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Payment"
+                  "$ref": "#/components/schemas/Transaction"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Payment"
+          "Transaction"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPayment"
+                "$ref": "#/components/schemas/NewTransaction"
               }
             }
           }
         }
       }
     },
-    "/payments/count": {
+    "/transactions/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Payment"
+          "Transaction"
         ],
         "parameters": []
       }
     },
-    "/payments/{id}": {
+    "/transactions/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Payment"
+                  "$ref": "#/components/schemas/Transaction"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Payment"
+          "Transaction"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Payment"
+                  "$ref": "#/components/schemas/Transaction"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Payment"
+          "Transaction"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPayment"
+                "$ref": "#/components/schemas/NewTransaction"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Payment"
+          "Transaction"
         ],
         "parameters": [
           {
@@ -510,82 +510,11 @@
           }
         ]
       }
-    },
-    "/admin/plugins/get-customser-invoice": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Payment"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "Payment": {
+      "Transaction": {
         "required": [
           "id"
         ],
@@ -593,9 +522,12 @@
           "id": {
             "type": "string"
           },
-          "date": {
+          "payment_date": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
+          },
+          "amount": {
+            "type": "number"
           },
           "customer": {
             "required": [
@@ -667,136 +599,14 @@
               }
             }
           },
-          "amount_received": {
-            "type": "number"
-          },
-          "amount_due": {
-            "type": "number"
-          },
-          "status": {
+          "mode_of_payment": {
             "type": "string",
+            "default": "cash",
             "enum": [
-              "paid",
-              "partially_paid",
-              "not_paid"
-            ]
-          },
-          "service": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "date": {
-                "type": "string"
-              },
-              "connections": {
-                "type": "integer"
-              },
-              "service_charge": {
-                "type": "number"
-              },
-              "parts_charge": {
-                "type": "number"
-              },
-              "total": {
-                "type": "number"
-              },
-              "customer": {
-                "type": "string"
-              },
-              "payment": {
-                "type": "string"
-              },
-              "cylinder_and_service_parts": {
-                "type": "string"
-              },
-              "service_type": {
-                "type": "string"
-              },
-              "amount_received": {
-                "type": "integer"
-              },
-              "admin_charge": {
-                "type": "integer"
-              },
-              "regulator": {
-                "type": "integer"
-              },
-              "gas_pipe": {
-                "type": "integer"
-              },
-              "connection_book": {
-                "type": "integer"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "delivery": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "date": {
-                "type": "string"
-              },
-              "cylinder_and_service_part": {
-                "type": "string"
-              },
-              "supply_qty": {
-                "type": "integer"
-              },
-              "rate": {
-                "type": "number"
-              },
-              "total": {
-                "type": "number"
-              },
-              "return_qty": {
-                "type": "integer"
-              },
-              "customer": {
-                "type": "string"
-              },
-              "payment": {
-                "type": "string"
-              },
-              "amount_recived": {
-                "type": "integer"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "bill_amount": {
-            "type": "number"
-          },
-          "bill_for": {
-            "type": "string",
-            "enum": [
-              "deposit",
-              "service",
-              "delivery"
+              "cash",
+              "upi",
+              "met_banking",
+              "cheque"
             ]
           },
           "published_at": {
@@ -805,44 +615,26 @@
           }
         }
       },
-      "NewPayment": {
+      "NewTransaction": {
         "properties": {
-          "date": {
+          "payment_date": {
             "type": "string",
-            "format": "date-time"
+            "format": "date"
+          },
+          "amount": {
+            "type": "number"
           },
           "customer": {
             "type": "string"
           },
-          "amount_received": {
-            "type": "number"
-          },
-          "amount_due": {
-            "type": "number"
-          },
-          "status": {
+          "mode_of_payment": {
             "type": "string",
+            "default": "cash",
             "enum": [
-              "paid",
-              "partially_paid",
-              "not_paid"
-            ]
-          },
-          "service": {
-            "type": "string"
-          },
-          "delivery": {
-            "type": "string"
-          },
-          "bill_amount": {
-            "type": "number"
-          },
-          "bill_for": {
-            "type": "string",
-            "enum": [
-              "deposit",
-              "service",
-              "delivery"
+              "cash",
+              "upi",
+              "met_banking",
+              "cheque"
             ]
           },
           "published_at": {
@@ -861,7 +653,7 @@
   },
   "tags": [
     {
-      "name": "Payment"
+      "name": "Transaction"
     }
   ]
 }

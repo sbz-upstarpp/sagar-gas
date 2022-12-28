@@ -30,8 +30,8 @@
       "default": 0
     },
     "customer": {
-      "model": "customer",
-      "via": "services"
+      "via": "services",
+      "model": "customer"
     },
     "payment": {
       "model": "payment",

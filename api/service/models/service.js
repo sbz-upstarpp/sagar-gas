@@ -26,17 +26,25 @@ module.exports = {
                 total += Number(data.admin_charge);
             }
         
-            const paymentData = {
+            const billData = {
                 date : data.date,
                 bill_amount : total,
                 bill_for : "service",
-                amount_received : data.amount_received,
-                amount_due : (total-data.amount_received),
+                // amount_received : data.amount_received,
+                // amount_due : (total-data.amount_received),
                 service : result.id,
                 customer : data.customer
             }
-            console.log(paymentData,"payment dtaa");
-            strapi.services.payment.create(paymentData);
+            console.log(billData,"bill dtaa");
+            strapi.services.payment.create(billData);
+
+             // create payment entry
+            const paymentData = {
+                payment_date: result.created_at,
+                amount : data.amount_received,
+                customer: result.id
+            }
+            strapi.services.transaction.create(paymentData)
         }
     }
 };
